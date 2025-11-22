@@ -130,7 +130,7 @@ const SignIn = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 p-4">
       <Card className="w-full max-w-lg shadow-2xl border-0 bg-white/95 backdrop-blur-sm animate-slide-in-up">
         <CardHeader className="space-y-3 text-center pb-6">
-          <CardTitle className="text-3xl font-bold text-slate-800">Welcome Back again</CardTitle>
+          <CardTitle className="text-3xl font-bold text-slate-800">Welcome Back again back</CardTitle>
           <CardDescription className="text-slate-600 text-base">
             Sign in to your scientist account
           </CardDescription>

@@ -9,20 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout repository code
         uses: actions/checkout@v3
 
-      - name: Run Ansible Frontend Deployment
-        uses: appleboy/ssh-action@v0.1.10
+      - name: SSH to Ansible server and run playbook
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 34.207.234.147
+          host: 34.207.234.147     # Ansible Server Public IP
           username: ubuntu
-          key: ${{ secrets.-----BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-QyNTUxOQAAACCXSCgkh2eLxmUeJ/1WTFzlR4t/qoFw35L43POYp4HF6QAAAJAmmEyOJphM
-jgAAAAtzc2gtZWQyNTUxOQAAACCXSCgkh2eLxmUeJ/1WTFzlR4t/qoFw35L43POYp4HF6Q
-AAAEBPqvqKcLXG7Wr1tQ3yb9Ba22V74gAnz7inFTq6tfdfnZdIKCSHZ4vGZR4n/VZMXOVH
-i3+qgXDfkvjc85ingcXpAAAAC2Fuc2libGUta2V5AQI=
------END OPENSSH PRIVATE KEY-----}}
+          key: ${{ secrets.ANSIBLE_SSH_KEY }}
           script: |
+            cd /etc/ansible
             ansible-playbook frontend.yml

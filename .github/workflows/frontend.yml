@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run Ansible Frontend Deploy
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Ansible Frontend Deployment
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: 34.207.234.147
